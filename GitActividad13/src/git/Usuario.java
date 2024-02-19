@@ -1,13 +1,41 @@
 package git;
 
+import java.util.Arrays;
+
 public class Usuario {
 	String id;
 	String nombre;
 	double []valoraciones;
 
-	
+
+	// Constructores
+		public Usuario() {
+			super();
+		}
+		public Usuario(String id, String nombre, double[] valoraciones) {
+			super();
+			this.id = id;
+			this.nombre = nombre;
+			this.valoraciones = valoraciones;
+		}
+
+
 	//METODOS
-	
+		public String toString() {
+			return "Usuario [id=" + id + ", nombre=" + nombre + ", valoraciones=" + Arrays.toString(valoraciones) + "]";
+		}
+		
+		public double devolverValoracionMedia() {
+			double media = 0;
+			double suma = 0;
+			for(int i = 0; i<this.valoraciones.length;i++) {
+				suma += this.valoraciones[i];
+			}
+			media = suma/this.valoraciones.length;
+			return media;
+			
+		}
+		
 	//Mostrar las valoraciones 
 	public void motrarValoraciones() {
 		for(int i = 0;i < this.valoraciones.length ;i++) {
@@ -16,7 +44,7 @@ public class Usuario {
 		}
 
 	}
-	
+
 	//Devolver las notas que son mas altas que una valoracion dada            
 	public int devolverPuntuacionesMasAltas(double nota) {
 		int notas_mayores = 0;
@@ -28,4 +56,21 @@ public class Usuario {
 		}
 		return notas_mayores;
 	}
+
+
+	public boolean devolverMayorOMenorMediaValoracion(double nota) {
+			double media = this.devolverValoracionMedia();
+			
+			boolean flag = false;
+			if (nota>media) {
+				flag= true;
+			}
+			return flag;
+		}
+		
+		public boolean devolverMayorOMenorMediaValoracionTernario(double nota) {
+			return (nota>this.devolverValoracionMedia())?true:false;
+		}
+	
+
 }
