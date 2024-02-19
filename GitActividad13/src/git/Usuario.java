@@ -5,6 +5,7 @@ public class Usuario {
 	String nombre;
 	double []valoraciones;
 
+
 public int devolverPuntuacionesMasAltas(double nota) {
 	int notas_mayores = 0;
 	for (double d : valoraciones) {
@@ -14,5 +15,17 @@ public int devolverPuntuacionesMasAltas(double nota) {
 
 	}
 	return notas_mayores;
+}
+	
+	
+	//METODOS
+	
+	//Mostrar las valoraciones 
+	public void motrarValoraciones() {
+		for(int i = 0;i < this.valoraciones.length ;i++) {
+			System.out.println("Lista de valoraciones");
+			System.out.println("Valoracion  " + i + " : " +  this.valoraciones[i]);	
+		}
+
 	}
 }
