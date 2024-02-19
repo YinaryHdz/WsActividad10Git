@@ -5,18 +5,6 @@ public class Usuario {
 	String nombre;
 	double []valoraciones;
 
-
-public int devolverPuntuacionesMasAltas(double nota) {
-	int notas_mayores = 0;
-	for (double d : valoraciones) {
-		if (d>nota) {
-			notas_mayores++;
-		}
-
-	}
-	return notas_mayores;
-}
-	
 	
 	//METODOS
 	
@@ -27,5 +15,17 @@ public int devolverPuntuacionesMasAltas(double nota) {
 			System.out.println("Valoracion  " + i + " : " +  this.valoraciones[i]);	
 		}
 
+	}
+	
+	//Devolver las notas que son mas altas que una valoracion dada            
+	public int devolverPuntuacionesMasAltas(double nota) {
+		int notas_mayores = 0;
+		for (double d : valoraciones) {
+			if (d>nota) {
+				notas_mayores++;
+			}
+
+		}
+		return notas_mayores;
 	}
 }
